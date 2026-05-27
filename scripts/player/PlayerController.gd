@@ -48,9 +48,9 @@ func _setup_local_player() -> void:
 	var spawn_z := rng.randf_range(-30, 30)
 
 	# Пытаемся получить реальную высоту острова
-	var island_gen := get_tree().current_scene.get_node_or_null("IslandGenerator") as Node
-	if island_gen and island_gen.has_method("get_height_at"):
-		var terrain_y := island_gen.get_height_at(Vector2(spawn_x, spawn_z))
+	var island_gen: IslandGenerator = get_tree().current_scene.get_node_or_null("IslandGenerator") as IslandGenerator
+	if island_gen:
+		var terrain_y: float = island_gen.get_height_at(Vector2(spawn_x, spawn_z))
 		position = Vector3(spawn_x, terrain_y + 2.0, spawn_z)  # +2 чтобы не застрять в земле
 	else:
 		position = Vector3(spawn_x, 30.0, spawn_z)

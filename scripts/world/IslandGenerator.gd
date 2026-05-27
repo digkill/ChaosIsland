@@ -1,3 +1,4 @@
+class_name IslandGenerator
 extends Node3D
 
 @export var island_size: int    = 200

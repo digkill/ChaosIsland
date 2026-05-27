@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[sub_resource type="BoxShape3D" id="wall_shape"]
+size = Vector3(2.0, 2.5, 0.25)
+
+[sub_resource type="BoxMesh" id="wall_mesh"]
+size = Vector3(2.0, 2.5, 0.25)
+
+[node name="WoodWall" type="StaticBody3D"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+position = Vector3(0, 1.25, 0)
+shape = SubResource("wall_shape")
+
+[node name="MeshInstance" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.25, 0)
+mesh = SubResource("wall_mesh")
+cast_shadow = 1
